@@ -6,13 +6,11 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import org.itm.ddobak.admin.DifficultyLevel
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.multipart.MultipartFile
-import java.io.File
 import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/api/v1/admin/scripts")
-@Tag(name = "Script Management", description = "Operations related to managing scripts"  )
+@Tag(name = "Script Management", description = "Operations related to managing scripts")
 class ScriptController() {
     @Operation(
         summary = "Get script list",
