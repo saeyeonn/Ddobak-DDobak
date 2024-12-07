@@ -1,4 +1,4 @@
-package org.itm.ddobak.user
+package org.itm.ddobak.user.settings
 
 import org.itm.ddobak.classification.DifficultyLevel
 

@@ -1,4 +1,4 @@
-package org.itm.ddobak.user
+package org.itm.ddobak.user.statistics
 
 enum class StatisticsPeriod {
     DAY,

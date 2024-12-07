@@ -1,7 +1,7 @@
 package org.itm.ddobak.auth
 
 import org.itm.ddobak.user.RecentProgress
-import org.itm.ddobak.user.StudySettings
+import org.itm.ddobak.user.settings.StudySettings
 
 data class UserResponse(
     val id: Long,

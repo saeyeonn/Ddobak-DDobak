@@ -4,11 +4,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import org.itm.ddobak.classification.DifficultyLevel
 import org.itm.ddobak.user.RecentProgress
-import org.itm.ddobak.user.StudySettings
+import org.itm.ddobak.user.settings.StudySettings
 import org.itm.ontime.dobak.auth.SignUpRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.util.UUID
 
 @RestController
 @RequestMapping("/auth")
