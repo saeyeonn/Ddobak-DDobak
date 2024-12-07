@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/v1/user/{userId}/statistics")
 class UserStatisticsController {
     @GetMapping
-    fun getStatistics(
+    fun getTotalStatistics(
         @PathVariable userId: Long,
-        @RequestParam(value = "languageId") @Nullable languageId: Long,
-        @RequestParam(value = "categoryId") @Nullable categoryId: Long,
-        @RequestParam(value = "languageId") @Nullable difficultyLevel: DifficultyLevel,
+        @RequestParam(value = "languageId") @Nullable languageId: Long?,
+        @RequestParam(value = "categoryId") @Nullable categoryId: Long?,
+        @RequestParam(value = "languageId") @Nullable difficultyLevel: DifficultyLevel?,
         @RequestParam @Nullable statPeriod: StatisticsPeriod
     ): ResponseEntity<UserStatisticsInfo> {
         return ResponseEntity.ok(
@@ -44,5 +44,9 @@ class UserStatisticsController {
                 )
             )
         )
+    }
+
+    fun getUnitStatistics() {
+        // TODO
     }
 }

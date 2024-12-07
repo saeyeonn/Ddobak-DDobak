@@ -1,6 +1,5 @@
 package org.itm.ddobak.admin.script
 
-import org.springframework.web.multipart.MultipartFile
 import java.time.LocalDateTime
 
 data class ScriptInfo(
