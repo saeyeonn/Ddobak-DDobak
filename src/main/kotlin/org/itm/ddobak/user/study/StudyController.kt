@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.multipart.MultipartFile
 import java.time.LocalDateTime
@@ -121,13 +122,24 @@ class StudyController {
         ))
     }
 
-    fun addWrongScript() {}
-
-    fun deleteWrongScript() {}
-
-    fun addDifficultScript() {}
-
-    fun deleteDifficultScript() {}
-
-    fun addVocabularies() {}
+    @Operation(
+        summary = "Classify difficult script",
+        description = "Classify the given script as difficult or not",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+            ApiResponse(responseCode = "400", description = "Request parameter error"),
+            ApiResponse(responseCode = "401", description = "Unauthorized"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
+            ApiResponse(responseCode = "404", description = "Not Found"),
+            ApiResponse(responseCode = "500", description = "Internal server error"),
+        ]
+    )
+    @PostMapping("/{scriptId}")
+    fun classifyDifficultScript(
+        @PathVariable userId: Long,
+        @PathVariable scriptId: Long,
+        @RequestParam isDifficult: Boolean
+    ) : ResponseEntity<Unit> {
+        return ResponseEntity.ok().build()
+    }
 }
