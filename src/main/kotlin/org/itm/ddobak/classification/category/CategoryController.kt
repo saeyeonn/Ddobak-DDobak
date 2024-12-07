@@ -74,12 +74,12 @@ class CategoryController() {
             ApiResponse(responseCode = "403", description = "Forbidden"),
         ]
     )
-    @PatchMapping
-    fun modifyCategory(@RequestParam name: String): ResponseEntity<CategoryInfo> {
+    @PatchMapping("/{categoryId}")
+    fun modifyCategory(@PathVariable categoryId: Long): ResponseEntity<CategoryInfo> {
         return ResponseEntity.ok(
             CategoryInfo(
-                id = 1,
-                name = name,
+                id = categoryId,
+                name = "Travel",
                 scriptCount = 0,
                 createdDate = LocalDateTime.now(),
                 modifiedDate = LocalDateTime.now()
