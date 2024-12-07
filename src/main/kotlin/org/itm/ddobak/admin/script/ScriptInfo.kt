@@ -1,7 +1,6 @@
-package org.itm.ddobak.script
+package org.itm.ddobak.admin.script
 
-import org.itm.ddobak.classification.DifficultyLevel
-import java.sql.Blob
+import org.springframework.web.multipart.MultipartFile
 import java.time.LocalDateTime
 
 data class ScriptInfo(
@@ -10,7 +9,7 @@ data class ScriptInfo(
     val script: String,
     val translatedScript: String,
     val audioURL: String,
-    val waveForm: String,
+    val waveForm: List<Float>,
     val userAverageAccuracy: Double,
     val userAverageFluency: Double,
     val createdDate: LocalDateTime,
