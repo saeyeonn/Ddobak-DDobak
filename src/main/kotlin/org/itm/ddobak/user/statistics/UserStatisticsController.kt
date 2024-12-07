@@ -1,7 +1,7 @@
 package org.itm.ddobak.user.statistics
 
 import jakarta.annotation.Nullable
-import org.itm.ddobak.classification.DifficultyLevel
+import org.itm.ddobak.admin.DifficultyLevel
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

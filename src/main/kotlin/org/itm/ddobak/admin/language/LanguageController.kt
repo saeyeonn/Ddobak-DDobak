@@ -1,4 +1,4 @@
-package org.itm.ddobak.classification.language
+package org.itm.ddobak.admin.language
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -52,16 +52,8 @@ class LanguageController() {
         ]
     )
     @PostMapping
-    fun createLanguage(@RequestParam name: String): ResponseEntity<LanguageInfo> {
-        return ResponseEntity.ok(
-            LanguageInfo(
-                id = 3,
-                name = name,
-                scriptCount = 0,
-                createdDate = LocalDateTime.now(),
-                modifiedDate = LocalDateTime.now()
-            )
-        )
+    fun createLanguage(@RequestParam name: String): ResponseEntity<Unit> {
+        return ResponseEntity.ok().build()
     }
 
     @Operation(
@@ -75,16 +67,8 @@ class LanguageController() {
         ]
     )
     @PatchMapping
-    fun modifyLanguage(@RequestParam name: String): ResponseEntity<LanguageInfo> {
-        return ResponseEntity.ok(
-            LanguageInfo(
-                id = 2,
-                name = name,
-                scriptCount = 0,
-                createdDate = LocalDateTime.now(),
-                modifiedDate = LocalDateTime.now()
-            )
-        )
+    fun modifyLanguage(@RequestParam name: String): ResponseEntity<Unit> {
+        return ResponseEntity.ok().build()
     }
 
     @Operation(

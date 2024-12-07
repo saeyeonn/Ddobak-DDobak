@@ -2,7 +2,7 @@ package org.itm.ddobak.auth
 
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
-import org.itm.ddobak.classification.DifficultyLevel
+import org.itm.ddobak.admin.DifficultyLevel
 import org.itm.ddobak.user.RecentProgress
 import org.itm.ddobak.user.settings.StudySettings
 import org.itm.ontime.dobak.auth.SignUpRequest

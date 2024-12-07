@@ -1,6 +1,6 @@
 package org.itm.ddobak.user
 
-import org.itm.ddobak.classification.DifficultyLevel
+import org.itm.ddobak.admin.DifficultyLevel
 
 data class RecentProgress(
     val category : String,

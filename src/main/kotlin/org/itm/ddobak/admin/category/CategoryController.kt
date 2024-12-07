@@ -1,4 +1,4 @@
-package org.itm.ddobak.classification.category
+package org.itm.ddobak.admin.category
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -52,16 +52,8 @@ class CategoryController() {
         ]
     )
     @PostMapping
-    fun createCategory(@RequestParam name: String): ResponseEntity<CategoryInfo> {
-        return ResponseEntity.ok(
-            CategoryInfo(
-                id = 3,
-                name = name,
-                scriptCount = 0,
-                createdDate = LocalDateTime.now(),
-                modifiedDate = LocalDateTime.now()
-            )
-        )
+    fun createCategory(@RequestParam name: String): ResponseEntity<Unit> {
+        return ResponseEntity.ok().build()
     }
 
     @Operation(
@@ -75,16 +67,8 @@ class CategoryController() {
         ]
     )
     @PatchMapping("/{categoryId}")
-    fun modifyCategory(@PathVariable categoryId: Long): ResponseEntity<CategoryInfo> {
-        return ResponseEntity.ok(
-            CategoryInfo(
-                id = categoryId,
-                name = "Travel",
-                scriptCount = 0,
-                createdDate = LocalDateTime.now(),
-                modifiedDate = LocalDateTime.now()
-            )
-        )
+    fun modifyCategory(@PathVariable categoryId: Long): ResponseEntity<Unit> {
+        return ResponseEntity.ok().build()
     }
 
     @Operation(

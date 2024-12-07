@@ -1,4 +1,4 @@
-package org.itm.ddobak.classification.unit
+package org.itm.ddobak.admin.unit
 
 class UnitRequest(
     val name: String,

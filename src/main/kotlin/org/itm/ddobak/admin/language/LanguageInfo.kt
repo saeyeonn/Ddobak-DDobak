@@ -1,4 +1,4 @@
-package org.itm.ddobak.classification.language
+package org.itm.ddobak.admin.language
 
 import java.time.LocalDateTime
 
