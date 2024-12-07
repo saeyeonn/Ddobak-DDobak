@@ -11,6 +11,8 @@ data class ScriptInfo(
     val translatedScript: String,
     val audioURL: String,
     val waveForm: String,
+    val userAverageAccuracy: Double,
+    val userAverageFluency: Double,
     val createdDate: LocalDateTime,
     val modifiedDate: LocalDateTime,
 )

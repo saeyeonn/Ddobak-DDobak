@@ -36,6 +36,8 @@ class ScriptController() {
                 translatedScript = "안녕하세요, 주문하고 싶습니다.\n네, 무엇을 드시겠습니까?\n구운 치킨과 사이드 샐러드로 할게요.\n음료는 어떠신가요?\n네, 아이스티 주세요.\n좋은 선택이에요! 주문하신 음식은 15분 정도 소요됩니다.",
                 audioURL = "https://example.com/audio/restaurant_order.mp3",
                 waveForm = "23,45,67,89,34,56,78,90,45,67,89,23,45,67,89,34,56,78",
+                userAverageAccuracy = 90.3,
+                userAverageFluency = 80.3,
                 createdDate = LocalDateTime.now(),
                 modifiedDate = LocalDateTime.now()
             ),
@@ -46,6 +48,8 @@ class ScriptController() {
                 translatedScript = "안녕하세요! 무엇을 도와드릴까요?\n아이스 라떼 라지 사이즈로 아몬드 밀크로 부탁드려요.\n시럽 추가하시겠어요?\n네, 바닐라 시럽 두 번 넣어주세요.\n커피와 함께 드실 음식은 필요하신가요?\n블루베리 머핀도 주세요.\n8달러 75센트입니다. 카드로 결제하시겠어요?",
                 audioURL = "https://example.com/audio/coffee_order.mp3",
                 waveForm = "23,45,67,89,34,56,78,90,45,67,89,23,45,67,89,34,56,78",
+                userAverageAccuracy = 60.3,
+                userAverageFluency = 50.3,
                 createdDate = LocalDateTime.now(),
                 modifiedDate = LocalDateTime.now(),
             ),
@@ -56,6 +60,8 @@ class ScriptController() {
                 translatedScript = "버거하우스에 오신 것을 환영합니다, 주문하시겠습니까?\n네, 더블 치즈버거 세트에 감자튀김 라지로 주세요.\n음료는 무엇으로 하시겠어요?\n콜라 미디움 사이즈로 주세요.\n디저트로 애플파이 추가하시겠어요? 오늘 특가상품입니다.\n아니요, 세트만 주문할게요.\n총 12달러 50센트입니다. 다음 창으로 이동해주세요.",
                 audioURL = "https://example.com/audio/drive_through_order.mp3",
                 waveForm = "45,67,89,23,45,67,89,34,56,78,90,23,45,67,89,12",
+                userAverageAccuracy = 90.3,
+                userAverageFluency = 80.3,
                 createdDate = LocalDateTime.now(),
                 modifiedDate = LocalDateTime.now(),
             )
@@ -83,7 +89,9 @@ class ScriptController() {
                 translatedScript = "스타카페에 오신 것을 환영합니다, 주문하시겠습니까?\n네, 작은 바닐라 라떼 한 잔 주세요.\n총 3달러 50센트입니다. 다음 창으로 이동해주세요.",
                 audioURL = "https://example.com/audio/drive_through_order.mp3",
                 waveForm = "45,67,89,23,45,67,89,34,56,78,90,23,45,67,89,12",
-                createdDate = LocalDateTime.now(),
+                 userAverageAccuracy = 90.3,
+                 userAverageFluency = 80.3,
+                 createdDate = LocalDateTime.now(),
                 modifiedDate = LocalDateTime.now(),
             )
         )
@@ -109,6 +117,8 @@ class ScriptController() {
                 translatedScript = "스타 카페에 오신 것을 환영합니다, 주문하시겠습니까?\n네, 작은 바닐라 라떼 한 잔 주세요.\n총 3달러 50센트입니다. 다음 창으로 이동해주세요.",
                 audioURL = "https://example.com/audio/drive_through_order.mp3",
                 waveForm = "45,67,89,23,45,67,89,34,56,78,90,23,45,67,89,12",
+                userAverageAccuracy = 90.3,
+                userAverageFluency = 80.3,
                 createdDate = LocalDateTime.now(),
                 modifiedDate = LocalDateTime.now(),
             )
