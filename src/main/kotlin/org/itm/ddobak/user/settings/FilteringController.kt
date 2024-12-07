@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/v1/user/{userId}/settings/filtering")
 @Tag(name = "Review Filtering Settings", description = "Operations related to managing review filtering settings" )
 class FilteringController {
-
     @Operation(
         description = "Get the current review filtering settings for the specified user",
         responses = [

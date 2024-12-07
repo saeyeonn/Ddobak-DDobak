@@ -1,5 +1,7 @@
 package org.itm.ddobak.user.statistics
 
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.responses.ApiResponse
 import jakarta.annotation.Nullable
 import org.itm.ddobak.admin.DifficultyLevel
 import org.springframework.http.ResponseEntity
@@ -8,10 +10,20 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/api/v1/user/{userId}/statistics")
 class UserStatisticsController {
+    @Operation(
+        summary = "Get total statistics for a user",
+        description = "Get the total statistics for a user based on the provided filter criteria",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+            ApiResponse(responseCode = "401", description = "Unauthorized"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
+        ]
+    )
     @GetMapping
     fun getTotalStatistics(
         @PathVariable userId: Long,
@@ -46,7 +58,28 @@ class UserStatisticsController {
         )
     }
 
-    fun getUnitStatistics() {
-        // TODO
+    @Operation(
+        summary = "Get unit statistics for a user",
+        description = "Get the unit statistics for a user based on the provided unit ID",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+            ApiResponse(responseCode = "401", description = "Unauthorized"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
+        ]
+    )
+    @GetMapping("/unit/{unitId}")
+    fun getUnitStatistics(
+        @PathVariable userId: Long,
+        @PathVariable unitId: Long,
+    ) : ResponseEntity<UserUnitStatisticsInfo> {
+        return ResponseEntity.ok(
+            UserUnitStatisticsInfo(
+                accuracyRate = 95.5,
+                fluencyRate = 98.0,
+                studyHour = 2400,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
+            )
+        )
     }
 }
