@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import org.itm.ddobak.admin.DifficultyLevel
 import org.itm.ddobak.user.settings.ReviewFilteringSettings
+import org.springframework.data.jpa.repository.Query
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDateTime
@@ -138,5 +139,35 @@ class ReviewController {
                 ),
             )
         ))
+
+        @Operation(
+            summary = "Search vocabulary by word",
+            description = "Search vocabulary by word and return the matching vocabulary",
+            responses = [
+                ApiResponse(responseCode = "200", description = "Success"),
+                ApiResponse(responseCode = "401", description = "Unauthorized"),
+                ApiResponse(responseCode = "403", description = "Forbidden"),
+            ]
+        )
+        @GetMapping("/vocabulary/search")
+        fun searchWord(
+            @PathVariable userId: Long,
+            @RequestParam word: String
+        ) : ResponseEntity<VocabularyInfo> {
+            return ResponseEntity.ok(
+                VocabularyInfo(
+                    id = 2,
+                    word = "cook",
+                    translation = "요리",
+                    audioURL = "http://url.script.audio",
+                    pronunciation = "kʊk",
+                    scripts = listOf(
+                        "I like to cook.", "Let's cook together."
+                    ),
+                    translatedScripts = listOf(
+                        "저는 요리하는 것을 좋아해요.", "우리 함께 요리하자."
+                    ),
+                ))
+        }
     }
 }
