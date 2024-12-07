@@ -1,0 +1,15 @@
+FUNCTION Logout(userId)
+
+IF NOT IsValidSession(userId) THEN
+       RETURN Error("유효하지 않은 세션입니다")
+   END IF
+
+   DestroySession(userId)
+
+   RETURN Success("로그아웃되었습니다")
+END FUNCTION
+
+
+FUNCTION DestroySession(userId)
+   RemoveFromSessionStorage(userId)
+END FUNCTION

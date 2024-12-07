@@ -1,0 +1,58 @@
+FUNCTION SignUp(email, password, name)
+   // 입력값 검증
+   IF email IS EMPTY OR password IS EMPTY OR name IS EMPTY THEN
+       RETURN Error("모든 필드를 입력해주세요")
+   END IF
+
+   // 이메일 형식 검증
+   IF NOT IsValidEmail(email) THEN 
+       RETURN Error("올바른 이메일 형식이 아닙니다")
+   END IF
+
+   // 이메일 중복 확인
+   existingUser = FindUserByEmail(email)
+   IF existingUser IS NOT NULL THEN
+       RETURN Error("이미 존재하는 이메일입니다")
+   END IF
+
+   // 비밀번호 해싱
+   hashedPassword = HashPassword(password)
+
+   // 새로운 사용자 생성
+   newUser = {
+       email: email,
+       password: hashedPassword,
+       name: name,
+       createdAt: CurrentTime()
+   }
+
+   // DB에 사용자 저장
+   userId = SaveUserToDB(newUser)
+
+   // 세션 생성 및 사용자 정보 저장
+   session = CreateSession(userId)
+   StoreUserInSession(session, {
+       id: userId,
+       email: email,
+       name: name
+   })
+
+   RETURN Success("회원가입이 완료되었습니다")
+END FUNCTION
+
+
+FUNCTION IsValidEmail(email)
+   pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+   RETURN email MATCHES pattern
+END FUNCTION
+
+FUNCTION HashPassword(password)
+   return bcrypt.hash(password, SALT_ROUNDS)
+END FUNCTION
+
+FUNCTION CreateSession(userId)
+   sessionId = GenerateUniqueId()
+   StoreSession(sessionId, userId)
+   RETURN sessionId
+END FUNCTION
+

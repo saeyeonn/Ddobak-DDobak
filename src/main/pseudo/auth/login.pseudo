@@ -1,0 +1,43 @@
+FUNCTION Login(email, password)
+   // 입력값 검증
+   IF email IS EMPTY OR password IS EMPTY THEN
+       RETURN Error("이메일과 비밀번호를 입력해주세요")
+   END IF
+
+   // DB에서 사용자 조회
+   user = FindUserByEmail(email)
+   IF user IS NULL THEN
+       RETURN Error("존재하지 않는 사용자입니다")
+   END IF
+
+   // 비밀번호 검증
+   IF NOT VerifyPassword(password, user.password) THEN
+       RETURN Error("이메일 또는 비밀번호가 일치하지 않습니다")
+   END IF
+
+   // 세션 생성 및 사용자 정보 저장
+   session = CreateSession(user.id)
+   StoreUserInSession(session, {
+       id: user.id,
+       email: user.email,
+       name: user.name
+   })
+
+   RETURN Success("로그인되었습니다")
+END FUNCTION
+
+
+FUNCTION VerifyPassword(inputPassword, hashedPassword)
+   return bcrypt.compare(inputPassword, hashedPassword)
+END FUNCTION
+
+FUNCTION CreateSession(userId)
+   sessionId = GenerateUniqueId()
+   StoreSession(sessionId, userId)
+   RETURN sessionId
+END FUNCTION
+
+FUNCTION StoreUserInSession(sessionId, userData)
+   SaveToSessionStorage(sessionId, userData)
+END FUNCTION
+
