@@ -1,4 +1,4 @@
-package org.itm.ontime.infrastructure.external.swagger
+package org.itm.ddobak.swagger
 
 import io.swagger.v3.oas.models.Components
 import io.swagger.v3.oas.models.OpenAPI
@@ -22,21 +22,6 @@ class SwaggerConfig {
 
             return OpenAPI()
                 .info(info)
-                .components(
-                    Components()
-                        .addSecuritySchemes(
-                            "bearer-jwt",
-                            SecurityScheme()
-                                .type(SecurityScheme.Type.HTTP)
-                                .scheme("bearer")
-                                .bearerFormat("JWT")
-                                .`in`(SecurityScheme.In.HEADER)
-                                .name(HttpHeaders.AUTHORIZATION)
-                        )
-                )
-                .addSecurityItem(
-                    SecurityRequirement().addList("bearer-jwt")
-                )
         }
     }
 }

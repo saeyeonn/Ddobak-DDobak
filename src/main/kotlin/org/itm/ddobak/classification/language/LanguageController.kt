@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/api/v1/admin/classification/languages")
@@ -25,12 +26,16 @@ class LanguageController() {
             LanguageInfo(
                 id = 1,
                 name = "English",
-                scriptCount = 160
+                scriptCount = 160,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             ),
             LanguageInfo(
                 id = 2,
                 name = "Chinese(Mandarin)",
-                scriptCount = 100
+                scriptCount = 100,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             )
         )
         return ResponseEntity.ok(response)
@@ -52,7 +57,9 @@ class LanguageController() {
             LanguageInfo(
                 id = 3,
                 name = name,
-                scriptCount = 0
+                scriptCount = 0,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             )
         )
     }
@@ -73,7 +80,9 @@ class LanguageController() {
             LanguageInfo(
                 id = 2,
                 name = name,
-                scriptCount = 0
+                scriptCount = 0,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             )
         )
     }

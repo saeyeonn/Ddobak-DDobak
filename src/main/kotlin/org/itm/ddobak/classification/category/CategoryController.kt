@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/api/v1/admin/classification/categories")
@@ -25,12 +26,16 @@ class CategoryController() {
             CategoryInfo(
                 id = 1,
                 name = "Travel",
-                scriptCount = 250
+                scriptCount = 250,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             ),
             CategoryInfo(
                 id = 2,
                 name = "Business",
-                scriptCount = 110
+                scriptCount = 110,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             )
         )
         return ResponseEntity.ok(response)
@@ -52,7 +57,9 @@ class CategoryController() {
             CategoryInfo(
                 id = 3,
                 name = name,
-                scriptCount = 0
+                scriptCount = 0,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             )
         )
     }
@@ -73,7 +80,9 @@ class CategoryController() {
             CategoryInfo(
                 id = 1,
                 name = name,
-                scriptCount = 0
+                scriptCount = 0,
+                createdDate = LocalDateTime.now(),
+                modifiedDate = LocalDateTime.now()
             )
         )
     }
