@@ -105,7 +105,7 @@ class StudyController {
             ApiResponse(responseCode = "500", description = "Internal server error"),
         ]
     )
-    @PostMapping("/{scriptId}")
+    @PostMapping("/{scriptId}/feedback")
     fun createFeedback(
         @PathVariable userId: Long,
         @PathVariable scriptId: Long,
@@ -134,7 +134,7 @@ class StudyController {
             ApiResponse(responseCode = "500", description = "Internal server error"),
         ]
     )
-    @PostMapping("/{scriptId}")
+    @PostMapping("/difficult-script/{scriptId}/")
     fun classifyDifficultScript(
         @PathVariable userId: Long,
         @PathVariable scriptId: Long,
