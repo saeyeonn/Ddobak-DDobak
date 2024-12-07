@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*
 @Tag(name = "Review Filtering Settings", description = "Operations related to managing review filtering settings" )
 class FilteringController {
     @Operation(
-        description = "Get the current review filtering settings for the specified user",
+        summary = "Get wrong scripts filtering settings",
+        description = "Get the wrong scripts filtering settings for the specified user",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -37,7 +38,8 @@ class FilteringController {
     }
 
     @Operation(
-        description = "Save the review filtering settings for the specified user",
+        summary = "Update wrong scripts settings",
+        description = "Save the wrong scripts filtering settings for the specified user",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -55,7 +57,8 @@ class FilteringController {
     }
 
     @Operation(
-        description = "Get the current history filtering settings for the specified user",
+        summary = "Get difficult scripts filltering settings",
+        description = "Get the current difficult scripts filtering settings for the specified user",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -79,7 +82,8 @@ class FilteringController {
     }
 
     @Operation(
-        description = "Save the history filtering settings for the specified user",
+        summary = "Update difficult scripts settings",
+        description = "Save the difficult scripts filtering settings for the specified user",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -97,7 +101,7 @@ class FilteringController {
     }
 
     @Operation(
-        description = "Get the current history filtering settings for the specified user",
+        summary = "Get unit history filtering settings",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -125,7 +129,8 @@ class FilteringController {
     }
 
     @Operation(
-        description = "Save the history filtering settings for the specified user",
+        summary = "Update unit history settings",
+        description = "Save the unit history filtering settings for the specified user",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),

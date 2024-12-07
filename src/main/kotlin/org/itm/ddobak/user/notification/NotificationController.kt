@@ -13,6 +13,7 @@ import java.time.LocalTime
 internal
 class NotificationController {
     @Operation(
+        summary = "Current Notification Settings",
         description = "Get the current notification settings for the specified user",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
@@ -33,12 +34,12 @@ class NotificationController {
     }
 
     @Operation(
-        description = "Update the notification settings for the specified user",
+        summary = "Update Notification Settings",
         responses = [
             ApiResponse(responseCode = "200", description = "Success"),
-                ApiResponse(responseCode = "400", description = "Request parameter error"),
+            ApiResponse(responseCode = "400", description = "Request parameter error"),
             ApiResponse(responseCode = "401", description = "Unauthorized"),
-                ApiResponse(responseCode = "403", description = "Forbidden"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
         ]
     )
     @PatchMapping

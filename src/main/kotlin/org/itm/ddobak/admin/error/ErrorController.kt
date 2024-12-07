@@ -1,11 +1,8 @@
 package org.itm.ddobak.admin.error
 
-import com.sun.org.apache.xalan.internal.utils.XMLSecurityPropertyManager
 import io.swagger.v3.oas.annotations.Operation
-import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
-import io.swagger.v3.oas.models.media.Schema
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 

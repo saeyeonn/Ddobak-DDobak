@@ -146,7 +146,17 @@ class ScriptController() {
         return ResponseEntity.ok(CollectScriptResponse("Hello, this is a translated script!"))
     }
 
-
+    @Operation(
+        summary = "Get script by Google Translate API",
+        description = "Get script by Google Translate API",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+            ApiResponse(responseCode = "401", description = "Unauthorized"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
+            ApiResponse(responseCode = "404", description = "Not Found"),
+            ApiResponse(responseCode = "500", description = "Internal Server Error")
+        ]
+    )
     @PostMapping("/{scriptId}/translate")
     fun getTranslatedScript(@PathVariable scriptId: Long, @RequestBody request: TranslateRequest): ResponseEntity<TranslateResponse> {
         return ResponseEntity.ok(TranslateResponse("안녕하세요. 번역된 스크립트입니다."))

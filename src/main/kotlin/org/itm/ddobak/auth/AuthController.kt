@@ -1,5 +1,6 @@
 package org.itm.ddobak.auth
 
+import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import org.itm.ddobak.admin.DifficultyLevel
@@ -13,46 +14,29 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/auth")
 class AuthController(
 ) {
-    @ApiResponses(
-        ApiResponse(
-            responseCode = "200",
-            description = "Success"
-        ),
-        ApiResponse(
-            responseCode = "400",
-            description = "Request parameter error"
-        ),
-        ApiResponse(
-            responseCode = "401",
-            description = "Unauthorized"
-        ),
-        ApiResponse(
-            responseCode = "403",
-            description = "Forbidden"
-        ),
+    @Operation(
+        summary = "Sign up a new user",
+        description = "Create a new user account",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+            ApiResponse(responseCode = "400", description = "Request parameter error"),
+            ApiResponse(responseCode = "409", description = "Email already exists"),
+            ApiResponse(responseCode = "500", description = "Internal server error"),
+        ]
     )
     @PostMapping("/sign-up")
     fun signUp(@RequestBody signUpRequest: SignUpRequest): ResponseEntity<Unit> {
         return ResponseEntity.ok().build()
     }
 
-    @ApiResponses(
-        ApiResponse(
-            responseCode = "200",
-            description = "Success"
-        ),
-        ApiResponse(
-            responseCode = "400",
-            description = "Request parameter error"
-        ),
-        ApiResponse(
-            responseCode = "401",
-            description = "Unauthorized"
-        ),
-        ApiResponse(
-            responseCode = "403",
-            description = "Forbidden"
-        ),
+    @Operation(
+        summary = "Login a user",
+        description = "Authenticate and authorize a user",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+            ApiResponse(responseCode = "401", description = "Unauthorized"),
+            ApiResponse(responseCode = "403", description = "Forbidden"),
+        ]
     )
     @PostMapping("/login")
     fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<UserResponse> {
@@ -75,19 +59,12 @@ class AuthController(
         )
     }
 
-    @ApiResponses(
-        ApiResponse(
-            responseCode = "200",
-            description = "Success"
-        ),
-        ApiResponse(
-            responseCode = "401",
-            description = "Unauthorized"
-        ),
-        ApiResponse(
-            responseCode = "403",
-            description = "Forbidden"
-        )
+    @Operation(
+        summary = "Logout a user",
+        description = "Invalidate a user's session",
+        responses = [
+            ApiResponse(responseCode = "200", description = "Success"),
+        ]
     )
     @PostMapping("/logout")
     fun logout(@RequestParam userId: Long){
